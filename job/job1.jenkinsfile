@@ -8,7 +8,10 @@ pipeline {
   stages {
     stage('Cloning Git') {
       steps {
-        git 'https://github.com/jadca/webapi.git'
+        git branch: 'main',
+            url:'https://github.com/jadca/webapi.git',
+            credentialsId:'jadcaGit'
+        sh 'ls -lta'
       }
     }
     stage('Building image') {
